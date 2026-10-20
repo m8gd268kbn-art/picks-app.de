@@ -1,0 +1,12 @@
+{
+  "applinks": {
+    "details": [
+      {
+        "appIDs": ["975DQY3RWN.app.picks.ios"],
+        "components": [
+          { "/": "/liga/*", "comment": "Liga-Einladungen: picks-app.de/liga/K7M2QX" }
+        ]
+      }
+    ]
+  }
+}

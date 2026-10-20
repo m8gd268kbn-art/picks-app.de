@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="robots" content="noindex">
+<title>PICKS · Liga-Einladung</title>
+<style>
+  :root { --night: #0a0a0a; --cotton: #f3f3ef; --muted: #a9a99f; --orange: #ff5b1a; --line: rgba(243, 243, 239, .18); }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0; min-height: 100vh; background: var(--night); color: var(--cotton);
+    font: 17px/1.45 -apple-system, BlinkMacSystemFont, "Helvetica Neue", Arial, sans-serif;
+    display: flex; justify-content: center;
+  }
+  main { width: 100%; max-width: 440px; padding: 40px 20px 32px; }
+  .mark { font-weight: 900; letter-spacing: .02em; font-size: 22px; }
+  h1 { font-size: 40px; line-height: 1.02; font-weight: 900; text-transform: uppercase; margin: 36px 0 12px; letter-spacing: -.01em; }
+  p { margin: 0 0 14px; color: var(--cotton); }
+  .muted { color: var(--muted); font-size: 15px; }
+  .button {
+    display: block; text-align: center; text-decoration: none; text-transform: uppercase; font-weight: 800;
+    letter-spacing: .04em; background: var(--orange); color: #0a0a0a; border-radius: 10px; padding: 17px; margin: 24px 0 28px;
+  }
+  .label { font: 700 12px/1 ui-monospace, Menlo, monospace; letter-spacing: .12em; text-transform: uppercase; color: var(--muted); }
+  .code {
+    display: flex; justify-content: space-between; align-items: center; border: 1px solid var(--line);
+    border-radius: 10px; padding: 14px 16px; margin: 10px 0 14px;
+  }
+  .code strong { font: 800 30px/1 ui-monospace, Menlo, monospace; letter-spacing: .18em; user-select: all; }
+  [hidden] { display: none !important; }
+</style>
+</head>
+<body>
+<main>
+  <div class="mark">"PICKS"</div>
+  <h1>Du bist eingeladen</h1>
+  <p>Jemand lädt dich in eine Liga auf PICKS ein. Ist PICKS schon auf deinem iPhone, öffnet der Link die App direkt.</p>
+  <a class="button" href="https://testflight.apple.com/join/rh9KyJrC">PICKS laden</a>
+  <div id="with-code" hidden>
+    <p>Danach den Link aus der Nachricht nochmal antippen, oder in PICKS unter Ligen → Mit Code beitreten:</p>
+    <div class="code"><span class="label">Code</span><strong id="code"></strong></div>
+  </div>
+  <p class="muted">PICKS ist ein Tippspiel ohne Geld. Diese Seite setzt keine Cookies und lädt nichts von anderen Seiten.</p>
+</main>
+<script>
+  // picks-app.de/liga/K7M2QX: show the code for typing it in by hand.
+  var match = location.pathname.match(/^\/liga\/([A-Za-z0-9]{6})\/?$/);
+  if (match) {
+    document.getElementById("code").textContent = match[1].toUpperCase();
+    document.getElementById("with-code").hidden = false;
+  }
+</script>
+</body>
+</html>
